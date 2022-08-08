@@ -22,7 +22,6 @@ class Market
 
   def total_inventory
     total_quantities = Hash.new(0)
-
     @vendors.each do |vendor|
       vendor.inventory.each do |item, quantity|
         total_quantities[item] += quantity

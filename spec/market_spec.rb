@@ -10,6 +10,7 @@ RSpec.describe Market do
     @item2 = Item.new({name: 'Tomato', price: "$0.50"})
     @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
     @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
+    @item5 = Item.new({name: 'Onion', price: '$0.25'})
     @vendor2 = Vendor.new("Ba-Nom-a-Nom")
     @vendor3 = Vendor.new("Palisade Peach Shack")
 
@@ -75,5 +76,10 @@ RSpec.describe Market do
     @market.add_vendor(@vendor3)
     expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
   end
+
+  it 'has a date' do
+    allow(Date).to receive(:today).and_return Date.new(2020,02,24)
+    expect(@market.date).to eq("24/02/2020")
+    
 
 end
