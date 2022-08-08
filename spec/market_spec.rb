@@ -69,7 +69,7 @@ RSpec.describe Market do
     expect(@market.overstocked_items).to eq([@item1])
   end
 
-  xit 'lists items sorted alphabetically' do
+  it 'lists items sorted alphabetically' do
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
