@@ -98,14 +98,9 @@ RSpec.describe Market do
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
     @market.sell(@item4, 5)
-    expect(@vendor2).check_stock(@item4).to eq(45)
+    expect(@vendor2.check_stock(@item4)).to eq(45)
     @market.sell(@item1, 40)
     expect(@vendor1.check_stock(@item1)).to eq(0)
     expect(@vendor3.check_stock(@item1)).to eq(60)
   end
-
-  end
-
-
-
 end
