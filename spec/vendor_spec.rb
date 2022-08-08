@@ -31,6 +31,6 @@ RSpec.describe Vendor do
     @vendor.stock(@item1, 30)
     @vendor.stock(@item2, 40)
     expect(@vendor.potential_revenue).to eq(42.5)
-    e
+  end
 
 end
