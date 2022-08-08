@@ -1,6 +1,7 @@
 require './lib/item'
 require './lib/vendor'
 require './lib/market'
+require 'date'
 
 RSpec.describe Market do
   before :each do
@@ -79,7 +80,10 @@ RSpec.describe Market do
 
   it 'has a date' do
     allow(Date).to receive(:today).and_return Date.new(2020,02,24)
-    expect(@market.date).to eq("24/02/2020")
-    
+    market_1 = Market.new("new instance to stub date")
+    expect(market_1.date).to eq("24/02/2020")
+  end
+
+  
 
 end
