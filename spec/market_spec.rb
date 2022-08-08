@@ -84,6 +84,28 @@ RSpec.describe Market do
     expect(market_1.date).to eq("24/02/2020")
   end
 
-  
+  it '#sells items that are in stock' do
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+    expect(@market.sell(@item1, 200)).to eq(false)
+    expect(@market.sell(@item5, 1)).to eq(false)
+    expect(@market.sell(@item4, 5)).to eq(true)
+  end
+
+  it 'reduces stock of sold items' do
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+    @market.sell(@item4, 5)
+    expect(@vendor2).check_stock(@item4).to eq(45)
+    @market.sell(@item1, 40)
+    expect(@vendor1.check_stock(@item1)).to eq(0)
+    expect(@vendor3.check_stock(@item1)).to eq(60)
+  end
+
+  end
+
+
 
 end
